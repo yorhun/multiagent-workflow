@@ -10,7 +10,7 @@ An orchestrator agent analyzes customer requests and coordinates specialized wor
 
 ### Workflow run terminal output
 
-![Terminal Output Clip](./terminal_output_trimmed.gif)
+![Terminal Output Clip](./docs/terminal_output_trimmed.gif)
 
 ## Project contents
 
