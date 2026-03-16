@@ -43,10 +43,10 @@ Customer inquiries enter through the **Paper Factory Orchestrator** agent, which
 - generate_financial_report(as_of_date): combines cash balance, inventory valuation, total assets, itemized inventory breakdown, and top-5 best-selling products by revenue into a dictionary suitable for management reporting.
 - search_quote_history(search_terms, limit=5): queries the `quote_requests` and `quotes` tables using LIKE filters across customer responses and quote explanations to find comparable previous transactions that can inform pricing for new customer inquiries.
 
-## 3. Testing the workflow
+### 3. Testing the workflow
 
 `project_starter.py` includes `run_test_scenarios()`, which processes all rows in `quote_requests_sample.csv` through the four-agent workflow and outputs final balances and customer responses to `test_results.csv`. Execution depends on the Udacity/Vocareum API key since all agents use `pydantic-ai` with OpenAI connectivity. (Configure `UDACITY_OPENAI_API_KEY` in `.env` then run `python project_starter.py`.)
 
-## 4. Ideas for Improvement
+### 4. Ideas for Improvement
 - **Use a partially nonlinear workflow** - this would speed up the processing. For example the quote calculation or restock planning for separate items can be processed simultaneously.
 - **Handle transactions and cash balance more systematically**
