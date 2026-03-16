@@ -241,14 +241,14 @@ def init_database(db_engine: Engine, seed: int = 137) -> Engine:
         # ----------------------------
         # 2. Load and initialize 'quote_requests' table
         # ----------------------------
-        quote_requests_df = pd.read_csv("quote_requests.csv")
+        quote_requests_df = pd.read_csv("files/quote_requests.csv")
         quote_requests_df["id"] = range(1, len(quote_requests_df) + 1)
         quote_requests_df.to_sql("quote_requests", db_engine, if_exists="replace", index=False)
 
         # ----------------------------
         # 3. Load and transform 'quotes' table
         # ----------------------------
-        quotes_df = pd.read_csv("quotes.csv")
+        quotes_df = pd.read_csv("files/quotes.csv")
         quotes_df["request_id"] = range(1, len(quotes_df) + 1)
         quotes_df["order_date"] = initial_date
 
@@ -2046,7 +2046,7 @@ def run_test_scenarios():
     print(f"{C.HEADER}Initializing Database...{C.RESET}")
     init_database(db_engine)
     try:
-        quote_requests_sample = pd.read_csv("quote_requests_sample.csv")
+        quote_requests_sample = pd.read_csv("files/quote_requests_sample.csv")
         quote_requests_sample["request_date"] = pd.to_datetime(
             quote_requests_sample["request_date"], format="%m/%d/%y", errors="coerce"
         )
@@ -2128,7 +2128,7 @@ def run_test_scenarios():
     print(f"{C.HEADER}Final Inventory: ${final_report['inventory_value']:.2f}{C.RESET}")
 
     # Save results
-    pd.DataFrame(results).to_csv("test_results.csv", index=False)
+    pd.DataFrame(results).to_csv("files/test_results.csv", index=False)
     return results
 
 
