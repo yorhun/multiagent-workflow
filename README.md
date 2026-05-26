@@ -31,5 +31,6 @@ Customer inquiries enter through the **Paper Factory Orchestrator** agent, which
 `project_starter.py` includes `run_test_scenarios()`, which processes all rows in `quote_requests_sample.csv` through the four-agent workflow and outputs final balances and customer responses to `test_results.csv`. Execution depends on the Udacity/Vocareum API key since all agents use `pydantic-ai` with OpenAI connectivity. (Configure `UDACITY_OPENAI_API_KEY` in `.env` then run `python project_starter.py`.)
 
 ### 3. Ideas for Improvement
+- **Refactor/break up script into smaller components** (separate files) for readability and reusability. The project submission asked for a single file but this makes the repository difficult to understand.
 - **Use a partially nonlinear workflow** - this would speed up the processing. For example the quote calculation or restock planning for separate items can be processed simultaneously.
 - **Handle transactions and cash balance more systematically**
